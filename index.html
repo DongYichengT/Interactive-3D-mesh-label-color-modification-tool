@@ -34,6 +34,9 @@
         }
         .step {
             margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
         }
         .step img {
             width: 100%;
@@ -49,6 +52,10 @@
             text-align: center;
             max-width: 700px;
             margin: 0 auto;
+        }
+        .step.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         footer {
             text-align: center;
@@ -95,6 +102,21 @@
 <footer>
     <p>© 2025 Yicheng Dong. All Rights Reserved.</p>
 </footer>
+
+<script>
+    // 当滚动到每个步骤时添加 visible 类，实现渐入动画
+    const steps = document.querySelectorAll('.step');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    steps.forEach(step => observer.observe(step));
+</script>
 
 </body>
 </html>
