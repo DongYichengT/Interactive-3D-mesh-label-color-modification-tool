@@ -1,63 +1,61 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive 3D Mesh Label Color Modification Tool</title>
+    <title>3D Mesh Label Color Modification Tool</title>
     <style>
         body {
-            font-family: "Microsoft YaHei", sans-serif;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
             color: #333;
         }
         header {
             background-color: #4CAF50;
             color: white;
-            padding: 30px 20px;
             text-align: center;
+            padding: 40px 20px;
         }
         header h1 {
             margin: 0;
+            font-size: 2em;
         }
         section {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 40px auto;
             padding: 0 20px;
         }
         h2 {
             color: #4CAF50;
+            margin-top: 50px;
+            margin-bottom: 20px;
         }
-        .image-container {
-            text-align: center;
-            margin: 20px 0;
+        .step {
+            margin-bottom: 50px;
         }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
+        .step img {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: 20px auto;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .step p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
         }
         footer {
-            background-color: #333;
-            color: #eee;
             text-align: center;
             padding: 20px;
+            background-color: #333;
+            color: #eee;
             margin-top: 40px;
-        }
-        .btn {
-            display: inline-block;
-            margin: 10px 0;
-            padding: 12px 24px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background-color: #45a049;
         }
     </style>
 </head>
@@ -65,36 +63,33 @@
 
 <header>
     <h1>Interactive 3D Mesh Label Color Modification Tool</h1>
-    <p>一个便捷的 3D 网格标签颜色交互修改工具</p>
+    <p>Step-by-step demonstration</p>
 </header>
 
 <section>
-    <h2>项目简介</h2>
-    <p>这里可以放你的文案，介绍项目功能、应用场景、解决的问题等。例如：该工具可以快速修改 3D 网格的标签颜色，实现更直观的可视化和数据分析。</p>
-
-    <div class="image-container">
-        <img src="images/screenshot1.png" alt="界面截图1">
+    <h2>Step 1</h2>
+    <div class="step">
+        <img src="images/photo1.png" alt="Step 1">
+        <p>The user can see a 3D mesh model displayed in the Polyscope visualization interface.</p>
     </div>
 
-    <h2>核心功能</h2>
-    <ul>
-        <li>交互式修改 3D 网格标签颜色</li>
-        <li>支持多种网格文件格式</li>
-        <li>实时可视化修改效果</li>
-        <li>导出修改后的网格数据</li>
-    </ul>
-
-    <div class="image-container">
-        <img src="images/screenshot2.png" alt="界面截图2">
+    <h2>Step 2</h2>
+    <div class="step">
+        <img src="images/photo2.png" alt="Step 2">
+        <p>The user can interactively select label colors and modify label values by clicking buttons and dragging sliders.</p>
     </div>
 
-    <h2>快速使用</h2>
-    <p>1. 下载项目<br>
-       2. 安装依赖<br>
-       3. 运行主程序<br>
-       4. 在界面中导入网格并修改标签颜色</p>
+    <h2>Step 3</h2>
+    <div class="step">
+        <img src="images/photo3.png" alt="Step 3">
+        <p>As the user interacts, the face colors of the mesh model are updated in real time to reflect the new label colors.</p>
+    </div>
 
-    <a class="btn" href="https://github.com/DongYichengT/Interactive-3D-mesh-label-color-modification-tool" target="_blank">查看 GitHub 仓库</a>
+    <h2>Step 4</h2>
+    <div class="step">
+        <img src="images/photo4.png" alt="Step 4">
+        <p>The user can save the modified label information to a new TXT file and reload it when needed.</p>
+    </div>
 </section>
 
 <footer>
