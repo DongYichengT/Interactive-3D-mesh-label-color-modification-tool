@@ -13,9 +13,11 @@
         --almost-black: #171C1D;
     }
 
-    * {
-        box-sizing: border-box;
+    html {
+        scroll-behavior: smooth; /* 平滑滚动 */
     }
+
+    * { box-sizing: border-box; }
 
     body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -25,11 +27,38 @@
         padding: 0;
     }
 
+    /* 顶部导航 */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--dark-blue);
+        color: var(--light-gray);
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        padding: 15px 0;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    nav a {
+        color: var(--light-gray);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    nav a:hover {
+        color: var(--orange);
+    }
+
     header {
         background-color: var(--dark-blue);
         color: var(--light-gray);
         text-align: center;
-        padding: 60px 20px;
+        padding: 100px 20px 60px; /* 顶部导航占位 */
     }
 
     header h1 {
@@ -151,12 +180,20 @@
 </head>
 <body>
 
+<nav>
+    <a href="#project">Project Highlights</a>
+    <a href="#step1">Step 1</a>
+    <a href="#step2">Step 2</a>
+    <a href="#step3">Step 3</a>
+    <a href="#step4">Step 4</a>
+</nav>
+
 <header>
     <h1>Interactive 3D Mesh Label Color Modification Tool</h1>
     <p>Project Overview & Step-by-Step Demonstration</p>
 </header>
 
-<section>
+<section id="project">
     <h2>Project Highlights</h2>
     <div class="project-intro">
         <div class="card">
@@ -184,25 +221,33 @@
             <p>Supports k-neighborhood selection: users can select a face and its k adjacent layers for batch modification.</p>
         </div>
     </div>
+</section>
 
+<section id="step1">
     <h2>Step 1</h2>
     <div class="step">
         <img src="images/photo1.png" alt="Step 1">
         <p>The user can see a 3D mesh model displayed in the Polyscope visualization interface.</p>
     </div>
+</section>
 
+<section id="step2">
     <h2>Step 2</h2>
     <div class="step">
         <img src="images/photo2.png" alt="Step 2">
         <p>The user can interactively select label colors and modify label values by clicking buttons and dragging sliders.</p>
     </div>
+</section>
 
+<section id="step3">
     <h2>Step 3</h2>
     <div class="step">
         <img src="images/photo3.png" alt="Step 3">
         <p>As the user interacts, the face colors of the mesh model are updated in real time to reflect the new label colors.</p>
     </div>
+</section>
 
+<section id="step4">
     <h2>Step 4</h2>
     <div class="step">
         <img src="images/photo4.png" alt="Step 4">
