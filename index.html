@@ -5,13 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>3D Mesh Label Color Modification Tool</title>
 <style>
-    /* 配色方案 */
     :root {
         --dark-blue: #092B42;
         --blue: #105186;
         --light-gray: #F0F2F3;
         --orange: #FDB338;
         --almost-black: #171C1D;
+    }
+
+    * {
+        box-sizing: border-box;
     }
 
     body {
@@ -26,52 +29,89 @@
         background-color: var(--dark-blue);
         color: var(--light-gray);
         text-align: center;
-        padding: 50px 20px;
+        padding: 60px 20px;
     }
 
     header h1 {
         margin: 0;
-        font-size: 2.2em;
+        font-size: 2.4em;
         color: var(--orange);
     }
 
     header p {
-        font-size: 1.1em;
+        font-size: 1.2em;
         margin-top: 10px;
         color: var(--blue);
     }
 
     section {
-        max-width: 900px;
-        margin: 40px auto;
+        max-width: 1000px;
+        margin: 50px auto;
         padding: 0 20px;
     }
 
     h2 {
         color: var(--blue);
-        margin-top: 50px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
+        font-size: 2em;
+        text-align: center;
     }
 
+    /* 项目介绍卡片 */
     .project-intro {
-        background-color: white;
-        padding: 20px 30px;
-        border-radius: 10px;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-        line-height: 1.6;
-        font-size: 1.1em;
-        margin-bottom: 50px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 60px;
     }
 
+    .project-intro .card {
+        background-color: white;
+        padding: 25px 20px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.8s ease;
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    .project-intro .card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .project-intro .card h3 {
+        color: var(--orange);
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.2em;
+    }
+
+    .project-intro .card p {
+        font-size: 1em;
+        line-height: 1.6;
+    }
+
+    .project-intro .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    /* 步骤展示 */
     .step {
         margin-bottom: 50px;
+        background-color: white;
+        padding: 25px 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         opacity: 0;
         transform: translateY(40px);
         transition: all 0.8s ease-out;
-        background-color: white;
-        padding: 20px 30px;
-        border-radius: 10px;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .step.visible {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .step img {
@@ -84,31 +124,26 @@
 
     .step p {
         text-align: center;
-        margin: 0;
         font-size: 1.1em;
         line-height: 1.6;
-    }
-
-    .step.visible {
-        opacity: 1;
-        transform: translateY(0);
+        margin: 0;
     }
 
     footer {
         text-align: center;
-        padding: 20px;
+        padding: 25px;
         background-color: var(--dark-blue);
         color: var(--light-gray);
-        margin-top: 40px;
         font-size: 0.9em;
+        margin-top: 40px;
     }
 
-    a {
+    footer a {
         color: var(--orange);
         text-decoration: none;
     }
 
-    a:hover {
+    footer a:hover {
         text-decoration: underline;
     }
 
@@ -118,17 +153,36 @@
 
 <header>
     <h1>Interactive 3D Mesh Label Color Modification Tool</h1>
-    <p>Step-by-step demonstration & Project Overview</p>
+    <p>Project Overview & Step-by-Step Demonstration</p>
 </header>
 
 <section>
+    <h2>Project Highlights</h2>
     <div class="project-intro">
-        <p>• Developed a 3D mesh labeling tool supporting batch label modification, color mapping, undo, and saving, improving model processing efficiency.</p>
-        <p>• Implemented with Python using OpenMesh, Polyscope, and libigl for mesh reading, adjacency computation, and interactive visualization.</p>
-        <p>• Applicable to multiple .obj mesh files with interactive response time &lt; 0.6s.</p>
-        <p>• Users can select different label colors via buttons and apply them by clicking mesh faces.</p>
-        <p>• “Edit Mode” toggle is provided; label modifications require enabling this option.</p>
-        <p>• Supports k-neighborhood selection: users can select a face and its k adjacent layers for batch modification.</p>
+        <div class="card">
+            <h3>Efficiency</h3>
+            <p>Developed a 3D mesh labeling tool supporting batch label modification, color mapping, undo, and saving, improving model processing efficiency.</p>
+        </div>
+        <div class="card">
+            <h3>Implementation</h3>
+            <p>Implemented with Python using OpenMesh, Polyscope, and libigl for mesh reading, adjacency computation, and interactive visualization.</p>
+        </div>
+        <div class="card">
+            <h3>Performance</h3>
+            <p>Applicable to multiple .obj mesh files with interactive response time &lt; 0.6s.</p>
+        </div>
+        <div class="card">
+            <h3>Interaction</h3>
+            <p>Users can select different label colors via buttons and apply them by clicking mesh faces.</p>
+        </div>
+        <div class="card">
+            <h3>Edit Mode</h3>
+            <p>“Edit Mode” toggle is provided; label modifications require enabling this option.</p>
+        </div>
+        <div class="card">
+            <h3>Neighborhood Selection</h3>
+            <p>Supports k-neighborhood selection: users can select a face and its k adjacent layers for batch modification.</p>
+        </div>
     </div>
 
     <h2>Step 1</h2>
@@ -161,7 +215,8 @@
 </footer>
 
 <script>
-    // Scroll fade-in animation
+    // 渐入动画
+    const introCards = document.querySelectorAll('.project-intro .card');
     const steps = document.querySelectorAll('.step');
 
     const observer = new IntersectionObserver(entries => {
@@ -172,6 +227,7 @@
         });
     }, { threshold: 0.2 });
 
+    introCards.forEach(card => observer.observe(card));
     steps.forEach(step => observer.observe(step));
 </script>
 
